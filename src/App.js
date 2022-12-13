@@ -1,9 +1,9 @@
+import { Header } from "./components/Header";
+
 function App() {
   return (
     <div>
-      <main>
-        <h1>Movie Catalog</h1>
-      </main>
+      <Header />
     </div>
   );
 }
