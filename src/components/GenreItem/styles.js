@@ -9,6 +9,7 @@ export const Tag  = styled.a`
   background: #fff;
   padding: 10px 15px;
   margin: 10px;
+  cursor: pointer;
 `;
 
 export const Name = styled.span`
