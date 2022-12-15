@@ -6,7 +6,8 @@ import { GenreItem } from '../GenreItem';
 import {
   Container,
   Content,
-  Title
+  Title,
+  FilterInfo
 } from './styles';
 
 export function GenreList() {
@@ -35,6 +36,7 @@ export function GenreList() {
   return (
     <Container>
       <Title>A complete catalog of movies for all tastes! Explore now!</Title>
+      <FilterInfo>Filter by:</FilterInfo>
       <Content>
         {genres && genres.length && genres.map((genre) => {
           return (
