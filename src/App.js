@@ -1,19 +1,16 @@
+import { BrowserRouter } from "react-router-dom";
+
 import { SearchProvider } from './context/Search';
 
-import { Header } from "./components/Header";
-import { GenreList } from "./components/GenreList";
-import { MovieList } from './components/MovieList';
-
+import AppRoutes from './routes';
 
 function App() {
 
   return (
     <SearchProvider>
-      <div>
-        <Header />
-        <GenreList />
-        <MovieList />
-      </div>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </SearchProvider>
   );
 }
