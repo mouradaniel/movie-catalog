@@ -22,3 +22,10 @@ export const Title = styled.h3`
   text-align: center;
   text-transform: uppercase;
 `;
+
+export const FilterInfo = styled.p`
+  color: #fff;
+  font-size: 18px;
+  margin: 20px 0 10px;
+  text-align: center;
+`;
