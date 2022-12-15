@@ -61,8 +61,14 @@ export const SearchProvider = ({ children }) => {
     }
   }
 
+  async function getMovieById(id) {
+    const response = await axios.get(`${API_URL}/3/movie/${id}?${API_KEY}`)
+    return response.data;
+  }
+
+
   return (
-    <SearchContext.Provider value={{API_URL, listTitle, movieList, getMovieListByTerm, getMovieListByGender}}>
+    <SearchContext.Provider value={{API_URL, listTitle, movieList, getMovieListByTerm, getMovieListByGender, getMovieById}}>
       {children}
     </SearchContext.Provider>
   );
