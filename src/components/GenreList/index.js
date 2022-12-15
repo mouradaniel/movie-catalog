@@ -40,7 +40,7 @@ export function GenreList() {
       <Content>
         {genres && genres.length && genres.map((genre) => {
           return (
-            <GenreItem key={genre.id} name={genre.name} />
+            <GenreItem key={genre.id} genre={genre} />
           )
         })}
       </Content>
