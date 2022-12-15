@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  display: flex;
   background: #EF5411;
 `;
 
 export const Content = styled.div`
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 20px 30px;
 `;
 

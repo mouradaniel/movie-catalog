@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Search } from '../Search';
+
 import {
   Container,
   Content,
@@ -11,6 +13,7 @@ export function Header() {
     <Container>
       <Content>
         <Logo>Movie Catalog</Logo>
+        <Search />
       </Content>
     </Container>
   )
