@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Search } from '../Search';
 
@@ -12,7 +13,9 @@ export function Header() {
   return (
     <Container>
       <Content>
-        <Logo>Movie Catalog</Logo>
+        <Link to={`/`}>
+          <Logo>Movie Catalog</Logo>
+        </Link>
         <Search />
       </Content>
     </Container>
