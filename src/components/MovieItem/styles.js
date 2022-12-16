@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 200px;
-  margin-bottom: 40px;
+  margin: 0 10px 40px;
 `;
 
 export const Title = styled.p`
