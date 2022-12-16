@@ -10,18 +10,32 @@ export const Content = styled.div`
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ImageContainer = styled.div`
-  margin-right: 30px;
+  width: 100%;
+  
+  @media (min-width: 768px) {
+    width: 40%;
+    margin-right: 30px;
+  }
 `;
 
 export const Image = styled.img`
   border: 5px solid #fff;
+  width: 100%;
 `;
 
 export const DetailsContainer = styled.div`
   color: #fff;
+  
+  @media (min-width: 768px) {
+    width: 60%;
+  }
 `;
 
 export const Title = styled.h2`

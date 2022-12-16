@@ -11,6 +11,10 @@ export const Content = styled.div`
   padding: 20px 0;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 export const Logo = styled.h1`

@@ -31,6 +31,7 @@ export default function MovieDetails() {
       getMovieById(id)
         .then((movie) => {
           setMovie(movie)
+          window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
         })
         .catch((error) => {
           console.log("Error on get a movie by id ", error)
