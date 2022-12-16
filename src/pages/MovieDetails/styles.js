@@ -44,3 +44,6 @@ export const Resume = styled.p`
 export const ReleaseDate = styled.p`
   font-size: 22px;
 `;
+
+export const Shelfs = styled.div`
+`;

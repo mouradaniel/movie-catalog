@@ -68,7 +68,7 @@ export const SearchProvider = ({ children }) => {
 
 
   return (
-    <SearchContext.Provider value={{API_URL, listTitle, movieList, getMovieListByTerm, getMovieListByGender, getMovieById}}>
+    <SearchContext.Provider value={{API_URL, API_KEY, listTitle, movieList, getMovieListByTerm, getMovieListByGender, getMovieById}}>
       {children}
     </SearchContext.Provider>
   );

@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 
 import SearchContext from '../../context/Search';
 
+import { Shelf } from '../../components/Shelf';
+
 import {
   Container,
   Content,
@@ -13,7 +15,8 @@ import {
   TitleInfos,
   Info,
   Resume,
-  ReleaseDate
+  ReleaseDate,
+  Shelfs
 } from './styles';
 
 export default function MovieDetails() {
@@ -52,23 +55,30 @@ export default function MovieDetails() {
   }
 
   return (
-    <Container>
-      <Content>
-        <ImageContainer>
-          <Image src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} />
-        </ImageContainer>
-        <DetailsContainer>
-          <Title>{movie.title}</Title>
-          <TitleInfos>
-            {movie.genres.map((genre, index) => {              
-              return <Info key={genre.id}>{index !== 0 ? ' | ' : ''}{genre.name}</Info>
-            })}
-          </TitleInfos>
-          <Resume>{movie.overview}</Resume>
-          <ReleaseDate>Release date: {getFormatedDate(movie.release_date)}</ReleaseDate>
-        </DetailsContainer>
-      </Content>
-    </Container>
+    <>
+      <Container>
+        <Content>
+          <ImageContainer>
+            <Image src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} />
+          </ImageContainer>
+          <DetailsContainer>
+            <Title>{movie.title}</Title>
+            <TitleInfos>
+              {movie.genres.map((genre, index) => {              
+                return <Info key={genre.id}>{index !== 0 ? ' | ' : ''}{genre.name}</Info>
+              })}
+            </TitleInfos>
+            <Resume>{movie.overview}</Resume>
+            <ReleaseDate>Release date: {getFormatedDate(movie.release_date)}</ReleaseDate>
+          </DetailsContainer>
+        </Content>
+      </Container>
+      <Shelfs>
+        <Shelf title="Recommendations" query={`3/movie/${movie.id}/recommendations`} />
+        <Shelf title="Similar" query={`3/movie/${movie.id}/similar`} />
+        <Shelf title="Upcoming" query={`3/movie/upcoming`} />
+      </Shelfs>
+    </>
   );
 }
   
