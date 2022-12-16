@@ -8,7 +8,9 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px;
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 export const Logo = styled.h1`
