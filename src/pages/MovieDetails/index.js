@@ -27,7 +27,6 @@ export default function MovieDetails() {
     try {
       getMovieById(id)
         .then((movie) => {
-          console.log('movie ', movie)
           setMovie(movie)
         })
         .catch((error) => {
@@ -38,6 +37,15 @@ export default function MovieDetails() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const getFormatedDate = (date) => {
+    let options = {
+      timeZone: 'America/Sao_Paulo',
+      dateStyle: 'short'
+    }
+
+    return new Date(date).toLocaleDateString('pt-Br', options)
+  }
 
   if (!movie) {
     return <div>Loading movie...</div>
@@ -57,7 +65,7 @@ export default function MovieDetails() {
             })}
           </TitleInfos>
           <Resume>{movie.overview}</Resume>
-          <ReleaseDate>Release date: {movie.release_date}</ReleaseDate>
+          <ReleaseDate>Release date: {getFormatedDate(movie.release_date)}</ReleaseDate>
         </DetailsContainer>
       </Content>
     </Container>
