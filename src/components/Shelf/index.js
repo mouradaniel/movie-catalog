@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import Slider from "react-slick";
+
 
 import SearchContext from '../../context/Search';
 
@@ -36,15 +38,23 @@ export function Shelf({ query, title }) {
     return <div>Loading movies...</div>
   }
 
+  const settings = {
+    infinite: true,
+    speed: 500,
+    variableWidth: true,
+  };
+
   return (
     <Container>
       <Title>{title}</Title>
       <Content>
-        {movies.map((movie) => {
-          return (
-            <MovieItem key={movie.id} movie={movie} />
-          )
-        })}
+        <Slider {...settings}>
+          {movies.map((movie) => {
+            return (
+              <MovieItem key={movie.id} movie={movie} />
+            )
+          })}
+        </Slider>
       </Content>
     </Container>
   )

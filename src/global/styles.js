@@ -17,4 +17,8 @@ export const GlobalStyle = createGlobalStyle`
       text-decoration: none;
     }
   }
+
+  .slick-arrow:before {
+    color: black;
+  }
 `

@@ -39,7 +39,7 @@ export default function MovieDetails() {
       console.log("Error on get movie ", error)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
 
   const getFormatedDate = (date) => {
     let options = {
