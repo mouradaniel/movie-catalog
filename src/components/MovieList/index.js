@@ -17,20 +17,18 @@ export function MovieList({ page, title }) {
 
   const { t } = useTranslation();
 
-  if (!movieList.length) {
-    return <div>Loading movies...</div>
+  if (movieList.length) {
+    return (
+      <Container>
+        <Title>{page === "home" ? title : `${t("results-for")} ${title}`}</Title>
+        <Content>
+          {movieList.map((movie) => {
+            return (
+              <MovieItem key={movie.id} movie={movie} />
+            )
+          })}
+        </Content>
+      </Container>
+    )
   }
-
-  return (
-    <Container>
-      <Title>{page === "home" ? title : `${t("results-for")} ${title}`}</Title>
-      <Content>
-        {movieList.map((movie) => {
-          return (
-            <MovieItem key={movie.id} movie={movie} />
-          )
-        })}
-      </Content>
-    </Container>
-  )
 }

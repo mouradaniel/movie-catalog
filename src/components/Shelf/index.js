@@ -33,28 +33,26 @@ export function Shelf({ query, title }) {
     }
   }, [language]);
 
-  if (!movies.length) {
-    return <div>Loading movies...</div>
-  }
-
   const settings = {
     infinite: true,
     speed: 500,
     variableWidth: true,
   };
 
-  return (
-    <Container>
-      <Title>{title}</Title>
-      <Content>
-        <Slider {...settings}>
-          {movies.map((movie) => {
-            return (
-              <MovieItem key={movie.id} movie={movie} />
-            )
-          })}
-        </Slider>
-      </Content>
-    </Container>
-  )
+  if (movies.length) {
+    return (
+      <Container>
+        <Title>{title}</Title>
+        <Content>
+          <Slider {...settings}>
+            {movies.map((movie) => {
+              return (
+                <MovieItem key={movie.id} movie={movie} />
+              )
+            })}
+          </Slider>
+        </Content>
+      </Container>
+    )
+  }
 }
