@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import { useTranslation } from "react-i18next";
+
 import SearchContext from '../../context/Search';
 
 import { MovieItem } from '../MovieItem';
@@ -10,8 +12,10 @@ import {
   Title
 } from './styles';
 
-export function MovieList() {
-  const { listTitle, movieList } = useContext(SearchContext);
+export function MovieList({ page, title }) {
+  const { movieList } = useContext(SearchContext);
+
+  const { t } = useTranslation();
 
   if (!movieList.length) {
     return <div>Loading movies...</div>
@@ -19,7 +23,7 @@ export function MovieList() {
 
   return (
     <Container>
-      <Title>{listTitle}</Title>
+      <Title>{page === "home" ? title : `${t("results-for")} ${title}`}</Title>
       <Content>
         {movieList.map((movie) => {
           return (
