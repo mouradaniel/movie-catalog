@@ -1,7 +1,5 @@
-import { t } from 'i18next';
-import React, { useContext, useState } from 'react';
-
-import SearchContext from '../../context/Search';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { useTranslation } from "react-i18next";
 
@@ -13,8 +11,6 @@ import {
 } from './styles';
 
 export function Search() {
-  const { getMovieListByTerm } = useContext(SearchContext);
-
   const { t } = useTranslation();
 
   const [term, setTerm] = useState("");
@@ -22,9 +18,11 @@ export function Search() {
   return (
     <Container>
       <Input value={term} onChange={(event) => setTerm(event.target.value)} placeholder={t('search-placeholder')} />
-      <Button onClick={() => getMovieListByTerm(term)}>
-        <Icon />
-      </Button>
+      <Link to={`/search/${term}`}>
+        <Button>
+          <Icon />
+        </Button>
+      </Link>
     </Container>
   )
 }
