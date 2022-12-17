@@ -33,3 +33,12 @@ export const Flag = styled.img`
   -webkit-filter: ${props => props.active ? "initial" : "grayscale(100%)"};
   filter: ${props => props.active ? "initial" : "grayscale(100%)"};
 `;
+
+export const LanguageText = styled.span`
+  color: #fff;
+  font-size: 12px;
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
+`;

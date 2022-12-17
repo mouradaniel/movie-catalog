@@ -8,7 +8,8 @@ import {
   Container,
   Content,
   Button,
-  Flag
+  Flag,
+  LanguageText
 } from './styles';
 
 import unitedStates from '../../assets/icons/united-states.svg';
@@ -27,6 +28,7 @@ export function LanguageBar() {
   return (
     <Container>
       <Content>
+        <LanguageText>{t("select-your-language")}</LanguageText>
         <Button onClick={() => changeLanguage("pt")}>
           <Flag src={flagBrazil} alt={t("flag-brazil")} title={t("flag-brazil")} active={i18n.language === "pt"} />
         </Button>
