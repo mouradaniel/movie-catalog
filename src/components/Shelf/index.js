@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Slider from "react-slick";
 
-
 import SearchContext from '../../context/Search';
 
 import { MovieItem } from '../MovieItem';
@@ -14,13 +13,13 @@ import {
 } from './styles';
 
 export function Shelf({ query, title }) {
-  const { API_URL, API_KEY } = useContext(SearchContext);
+  const { API_URL, API_KEY, language } = useContext(SearchContext);
 
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     try {
-      axios.get(`${API_URL}/${query}?${API_KEY}`)
+      axios.get(`${API_URL}/${query}?${API_KEY}&language=${language}`)
         .then(({ data }) => {
           if (data.results) {
             setMovies(data.results)
@@ -32,7 +31,7 @@ export function Shelf({ query, title }) {
     } catch (error) {
       console.log("Error on get movies to shelf ", error)
     }
-  }, []);
+  }, [language]);
 
   if (!movies.length) {
     return <div>Loading movies...</div>

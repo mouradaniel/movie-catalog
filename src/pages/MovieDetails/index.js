@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import SearchContext from '../../context/Search';
 
 import { Shelf } from '../../components/Shelf';
@@ -20,9 +22,11 @@ import {
 } from './styles';
 
 export default function MovieDetails() {
-  const { getMovieById } = useContext(SearchContext);
+  const { getMovieById, language } = useContext(SearchContext);
 
   const { id } = useParams();
+
+  const { t } = useTranslation();
 
   const [movie, setMovie] = useState(null);
 
@@ -40,7 +44,7 @@ export default function MovieDetails() {
       console.log("Error on get movie ", error)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  }, [id, language]);
 
   const getFormatedDate = (date) => {
     let options = {
@@ -70,14 +74,14 @@ export default function MovieDetails() {
               })}
             </TitleInfos>
             <Resume>{movie.overview}</Resume>
-            <ReleaseDate>Release date: {getFormatedDate(movie.release_date)}</ReleaseDate>
+            <ReleaseDate>{t("release-date")} {getFormatedDate(movie.release_date)}</ReleaseDate>
           </DetailsContainer>
         </Content>
       </Container>
       <Shelfs>
-        <Shelf title="Recommendations" query={`3/movie/${movie.id}/recommendations`} />
-        <Shelf title="Similar" query={`3/movie/${movie.id}/similar`} />
-        <Shelf title="Upcoming" query={`3/movie/upcoming`} />
+        <Shelf title={t("title-recommendations")} query={`3/movie/${movie.id}/recommendations`} />
+        <Shelf title={t("title-similar")} query={`3/movie/${movie.id}/similar`} />
+        <Shelf title={t("title-upcoming")} query={`3/movie/upcoming`} />
       </Shelfs>
     </>
   );
