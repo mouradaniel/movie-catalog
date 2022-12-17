@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import axios from "axios";
 
 import { useTranslation } from "react-i18next";
@@ -15,7 +15,7 @@ export const SearchProvider = ({ children }) => {
 
   const { t } = useTranslation();
 
-  useEffect(() => {
+  async function getPopularMovies() {
     try {
       axios.get(`${API_URL}/3/movie/popular?${API_KEY}&language=${language}`)
         .then(({ data }) => {
@@ -30,7 +30,7 @@ export const SearchProvider = ({ children }) => {
     } catch (error) {
       console.log("Error on get a popular movies ", error)
     }
-  }, [language]);
+  }
 
   async function getMovieListByTerm(term) {
     try {
@@ -79,6 +79,7 @@ export const SearchProvider = ({ children }) => {
       language, 
       listTitle, 
       movieList, 
+      getPopularMovies,
       getMovieListByTerm, 
       getMovieListByGender, 
       getMovieById,
