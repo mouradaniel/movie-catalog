@@ -4,6 +4,8 @@ import { SearchProvider } from './context/Search';
 
 import AppRoutes from './routes';
 
+import './i18n';
+
 function App() {
 
   return (
