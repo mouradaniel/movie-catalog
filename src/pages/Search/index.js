@@ -11,13 +11,13 @@ import {
 } from './styles';
 
 export default function Search() {
-  const { getMovieListByTerm } = useContext(SearchContext);
+  const { getMovieListByTerm, language } = useContext(SearchContext);
 
   const { id } = useParams();
 
   useEffect(() => {
     getMovieListByTerm(id)
-  }, [id]);
+  }, [id, language]);
 
   return (
     <Container>
